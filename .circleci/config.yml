@@ -1,0 +1,95 @@
+version: 2.1
+
+parameters:
+  update-dependencies:
+    default: false
+    type: boolean
+
+jobs:
+  package-maven:
+    docker:
+        - image: maven:3.8.4-openjdk-17
+    working_directory: /plugin-parent-pom
+    steps:
+        - checkout
+
+        - run:
+            name: clean and package
+            command: mvn clean package
+
+  deploy-maven:
+    docker:
+        - image: maven:3.8.4-openjdk-17
+    working_directory: /plugin-parent-pom
+    steps:
+        - checkout
+
+        - run:
+            name: deploy
+            command: bash .circleci/bash-deploy.bash
+
+  increment-version:
+    docker:
+        - image: maven:3.8.4-openjdk-17
+    working_directory: /plugin-parent-pom
+    steps:
+        - checkout
+
+        - run:
+            name: increment
+            command: bash .circleci/bash-increment-version.bash
+  
+  update-dependencies:
+    docker:
+        - image: maven:3.8.4-openjdk-17
+    working_directory: /plugin-parent-pom
+    steps:
+        - checkout
+
+        - run:
+            name: update-dependencies
+            command: bash .circleci/bash-update-dependencies.bash
+
+workflows:
+  version: 2
+  package:
+    when:
+      not: << pipeline.parameters.update-dependencies >>
+    jobs:
+      - package-maven:
+          filters:
+            branches:
+              ignore:
+                - master
+          context:
+              - build-context
+
+  release:
+    when:
+      not: << pipeline.parameters.update-dependencies >>
+    jobs:
+      - package-maven:
+          filters:
+            branches:
+              only:
+                - master
+          context:
+              - build-context                
+      - increment-version:
+          requires:
+            - package-maven
+          context:
+              - deploy-context            
+      - deploy-maven:
+          requires:
+            - increment-version
+          context:
+              - deploy-context
+  
+  update-dependencies:
+    when: << pipeline.parameters.update-dependencies >>
+    jobs:
+      - update-dependencies:
+          context:
+              - update-dependencies-context
+
