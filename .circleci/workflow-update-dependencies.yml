@@ -1,0 +1,10 @@
+update-dependencies:
+    triggers:
+      - schedule:
+          cron: "40 13 * * *"
+          filters: 
+            branches:
+              ignore:
+                - /.*/  # Ignore all branches
+    jobs:
+      - update-dependencies
