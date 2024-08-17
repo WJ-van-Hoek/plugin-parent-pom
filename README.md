@@ -5,6 +5,7 @@ POM to manage plugin versions for all my personal repositories
 # Release Notes
 |Release version  |Date  |Size  | Category |Content |
 |--|--|--|--|--|
+|0.0.6  |2024-08-17  |minor|technical|update dependencies |
 |  |2024-07-26  |minor|technical|update dependencies |
 |0.0.4|2024-07-26|minor|add|spring-boot-maven-plugin|
 |0.0.3|2024-07-26|minor|fix|jacoco version|
