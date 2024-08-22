@@ -12,7 +12,7 @@
 	<properties>
 		<jacoco.version>0.8.12</jacoco.version>
 		<lombok-maven-plugin.version>1.18.20.0</lombok-maven-plugin.version>
-		<maven-checkstyle-plugin.version>3.4.0</maven-checkstyle-plugin.version>
+		<maven-checkstyle-plugin.version>3.5.0</maven-checkstyle-plugin.version>
 		<mvn-checkstyle-plugin.version>3.4.0</mvn-checkstyle-plugin.version>
 		<mvn-compiler-plugin.version>3.13.0</mvn-compiler-plugin.version>
 		<mvn-javadoc-plugin.version>3.8.0</mvn-javadoc-plugin.version>
