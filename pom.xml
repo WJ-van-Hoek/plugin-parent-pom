@@ -5,7 +5,7 @@
 
 	<groupId>com.general</groupId>
 	<artifactId>plugin-parent-pom</artifactId>
-	<version>0.0.8</version>
+	<version>0.0.9</version>
 
 	<packaging>pom</packaging>
 
