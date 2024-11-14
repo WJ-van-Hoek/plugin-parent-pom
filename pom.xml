@@ -23,7 +23,7 @@
 		<site-mvn-plugin.version>0.12</site-mvn-plugin.version>
 		<spring-boot-maven-plugin.version>3.3.5</spring-boot-maven-plugin.version>
 		<surefire.version>3.5.2</surefire.version>
-		<versions-mvn-plugin.version>2.17.1</versions-mvn-plugin.version>
+		<versions-mvn-plugin.version>2.18.0</versions-mvn-plugin.version>
 	</properties>
 
 	<distributionManagement>
