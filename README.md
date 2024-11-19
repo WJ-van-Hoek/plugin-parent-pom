@@ -5,6 +5,7 @@ POM to manage plugin versions for all my personal repositories
 # Release Notes
 |Release version  |Date  |Size  | Category |Content |
 |--|--|--|--|--|
+|0.0.18  |2024-11-19  |minor|technical|update dependencies |
 |0.0.17  |2024-11-14  |minor|technical|update dependencies |
 |0.0.16  |2024-11-13  |minor|technical|update dependencies |
 |0.0.15  |2024-10-25  |minor|technical|update dependencies |
